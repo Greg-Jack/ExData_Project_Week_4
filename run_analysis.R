@@ -26,7 +26,7 @@ for(i in 1:6) {
 names(data) = append(c("Subject-ID","Activity"),as.character(column_labels$V2[grepl("*std\\(\\)",column_labels$V2)|grepl("mean\\(\\)",column_labels$V2)]))
 
 #Step 5
-tidy_data = aggregate(. ~ `Subject-ID` + Activity,data=data,max)
+tidy_data = aggregate(. ~ `Subject-ID` + Activity,data=data,mean)
 
 #writes tidy data table to file
 write.table(tidy_data,"tidy_data.txt",row.names = FALSE)
